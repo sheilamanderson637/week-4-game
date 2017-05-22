@@ -10,10 +10,14 @@
 
   <!-- <script src="assets/javascript/game.js"></script> -->
 
+  <!-- Reset CSS-->
+  <link rel="stylesheet" href="assets/css/reset.css"
+
   <!-- Added a link to Bootstrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <!-- Reset CSS-->
+  <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
 
   <!-- Added CSS file-->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -22,8 +26,13 @@
 <body>
 
   <div class="jumbotron">
-    <div class="text-center">Crystals Collector</div>
-    <div class="text-center">Directions to pointless game!</div>
+    <div class="crystalsTitle text-center">Crystals Collector</div>
+    <div class="directionsText text-center">
+      <p>Directions:</p>
+      <P>At the beginning of each game, a random number between 19 and 120 is generated.</p>
+      <p>Each of the crystals is also assigned a random number. Click on them to increase your number.</p>
+      <p>Match the random number to win. If your number exceeds the random number you lose. See how many times you can win!</p>
+    </div>
   </div>
 
   <div class="container">
@@ -32,9 +41,9 @@
 
       <!-- Random # Panel -->
       <div class="col-md-4">
-        <div class="panel panel-default">
+        <div class="panel panel-danger">
           <div class="panel-heading">
-            <div class="panel-title">Random Number</div>
+            <div class="panelTitle panel-title text-center">Random Number</div>
           </div>
           <div class="panel-body">
           <div class="text-center" id="randomNumber">    
@@ -45,9 +54,9 @@
 
     <!-- User number total -->
       <div class="col-md-4">
-        <div class="panel panel-default">
+        <div class="panel panel-danger">
           <div class="panel-heading">
-            <div class="panel-title">Your Number</div>
+            <div class="panelTitle panel-title text-center">Your Number</div>
           </div>
           <div id="finalTotal" class="panel-body text-center">
         </div>
@@ -56,9 +65,9 @@
 
       <!-- Score Panel -->
       <div class="col-md-4">
-        <div class="panel panel-default">
+        <div class="panel panel-danger">
           <div class="panel-heading">
-            <div class="panel-title">Score</div>
+            <div class="panelTitle panel-title text-center">Score</div>
           </div>
           <div class="panel-body">
             <div id="numberWins" class="text-center"></div>
@@ -71,15 +80,15 @@
     <!-- Crystal Panel -->
     <div class="row">
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel panel-danger">
           <div class="panel-heading">
-            <div id="crystalPanelTitle" class="panel-title">Crystals</div>
+            <div class="panelTitle panel-title text-center">Crystals</div>
           </div>
-          <div class="panel-body">
-          <button id="crystalOne" class="btn btn-sm btn-success" value="1"><h1>Crystal 1</h1></button>
-            <button id="crystalTwo" class="btn btn-sm btn-success" value="2"><h1>Crystal 2</h1></button>
-            <button id="crystalThree" class="btn btn-sm btn-success" value="3"><h1>Crystal 3</h1></button>
-            <button id="crystalFour" class="btn btn-sm btn-success" value="4"><h1>Crystal 4</h1></button>
+          <div id="crystalPanel" class="panel-body">
+          <button id="crystalOne" class="btn btn-lg btn-danger" value="1"><img class="img-responsive center-block" src="assets/images/redjewel.jpeg" alt="Red Crystal"></button>
+            <button id="crystalTwo" class="btn btn-lg btn-success" value="2"><img class="img-responsive center-block" src="assets/images/greencrystal.jpeg" alt="Green Crystal"></button>
+            <button id="crystalThree" class="btn btn-lg btn-primary" value="3"><img class="img-responsive center-block" src="assets/images/bluecrystal.png" alt="Blue Crystal"></button>
+            <button id="crystalFour" class="btn btn-lg btn-warning" value="4"><img class="img-responsive center-block" src="assets/images/yellowcrystal.jpeg" alt="Yellow Crystal"></button>
           </div>
        </div>
        </div>
@@ -90,7 +99,7 @@
 
       // Select a random number between 12-120 at the start of the game.
 
-      var Random=Math.floor(Math.random()*101+19)
+      var Random=Math.floor(Math.random() * 101) + 19;
 
       // Add the random number generated to the randomNumber id in the html.
 
@@ -98,13 +107,13 @@
 
       // Select random numbers between 1 - 12 for each of the four crystals.
 
-        var crystal1= Math.floor(Math.random()*11+1)
+        var crystal1= Math.floor(Math.random() * 12) + 1;
 
-        var crystal2= Math.floor(Math.random()*11+1)
+        var crystal2= Math.floor(Math.random() * 12) + 1;
 
-        var crystal3= Math.floor(Math.random()*11+1)
+        var crystal3= Math.floor(Math.random() * 12) + 1;
 
-        var crystal4= Math.floor(Math.random()*11+1)
+        var crystal4= Math.floor(Math.random() * 12) + 1;
     
       // Variables to track the score.
 
@@ -119,17 +128,17 @@
       $('#numberLosses').text(+ losses);
 
     function reset(){
-      Random=Math.floor(Math.random()*101+19);
+      Random=Math.floor(Math.random() *101) + 19;
 
      $('#randomNumber').text(Random);
 
-     crystal1= Math.floor(Math.random()*11+1);
+     crystal1= Math.floor(Math.random() * 12) + 1;
 
-     crystal2= Math.floor(Math.random()*11+1);
+     crystal2= Math.floor(Math.random() * 12) + 1;
 
-     crystal3= Math.floor(Math.random()*11+1);
+     crystal3= Math.floor(Math.random() * 12) + 1;
 
-     crystal4= Math.floor(Math.random()*11+1);
+     crystal4= Math.floor(Math.random() * 12) + 1;
 
      userTotal= 0;
 

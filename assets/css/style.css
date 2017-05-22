@@ -1,8 +1,62 @@
 body {
-	background-color: yellow;
+	background-color: black
 }
 
-#crystalPanelTitle {
+img {
+	height: 125px;
+	width: 125px;
+}
+
+.jumbotron {
+	background-color: purple;
+	height: 280px;
+	padding-top: 30px;
+}
+
+.btn {
+	margin-left: 92px;
+
+}
+
+
+.crystalsTitle {
+	font-size: 48px;
+	color: white;
+}
+
+.directionsText {
+	font-size: 24px;
+	color: white;
+
+}
+
+
+.panelTitle {
+	font-size: 24px;
+	font-weight: bold;
+	color: black;
+}
+
+.panel-body {
+	height: 125px;
+}
+
+#crystalPanel {
+	height: 200px;
+}
+
+#randomNumber,
+#finalTotal,
+#numberWins,
+#numberLosses {
 	font-size: 36px;
-	color: red;
+	color: purple;
+}
+
+#numberWins {
+	color: green;
+}
+
+#numberLosses {
+	color:red;
 }
