@@ -1,0 +1,253 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Game</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+  <!-- Added link to my JS -->
+
+  <script src="assets/javascript/game.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Reset CSS-->
+
+  <!-- Added CSS file-->
+  <link href="..assets/css/style.css"
+
+</head>
+<body>
+
+  <div class="jumbotron">
+    <h1 class="text-center">Crystals Collector</h1>
+    <h3 class="text-center">Directions to pointless game!</h3>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Random # Panel -->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Random Number</h3>
+          </div>
+          <div class="panel-body">
+          <div class="text-center" id="randomNumber">    
+          </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- User number total -->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Your Number</h3>
+          </div>
+          <div id="finalTotal" class="panel-body text-center">
+          <h1></h1>
+        </div>
+      </div>
+      </div>
+
+      <!-- Score Panel -->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Score</h3>
+          </div>
+          <div class="panel-body">
+            <div id="numberWins" class="text-center"></div>
+            <div id="numberLosses" class="text-center"></div>
+          </div>
+       </div>
+       </div>
+       </div>   
+
+    <!-- Crystal Panel -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Crystals</h3>
+          </div>
+          <div class="panel-body">
+          <button id="crystalOne" class="btn btn-sm btn-success" value="1"><h1>Crystal 1</h1></button>
+            <button id="crystalTwo" class="btn btn-sm btn-success" value="2"><h1>Crystal 2</h1></button>
+            <button id="crystalThree" class="btn btn-sm btn-success" value="3"><h1>Crystal 3</h1></button>
+            <button id="crystalFour" class="btn btn-sm btn-success" value="4"><h1>Crystal 4</h1></button>
+          </div>
+       </div>
+       </div>
+       </div>
+  <script type="text/javascript">
+
+    $( document ).ready(function(){
+
+      // Select a random number between 12-120 at the start of the game.
+
+      var Random=Math.floor(Math.random()*101+19)
+
+      // Add the random number generated to the randomNumber id in the html.
+
+      $('#randomNumber').text(Random);
+
+      // Select random numbers between 1 - 12 for each of the four crystals.
+
+        var crystal1= Math.floor(Math.random()*11+1)
+
+        var crystal2= Math.floor(Math.random()*11+1)
+
+        var crystal3= Math.floor(Math.random()*11+1)
+
+        var crystal4= Math.floor(Math.random()*11+1)
+    
+      // Variables to track the score.
+
+        var userTotal= 0;
+        var wins= 0;
+        var losses = 0;
+
+      // Game reset.
+
+      $('#numberWins').text(+ wins);
+
+      $('#numberLosses').text(+ losses);
+
+    function reset(){
+      Random=Math.floor(Math.random()*101+19);
+
+     $('#randomNumber').text(Random);
+
+     crystal1= Math.floor(Math.random()*11+1);
+
+     crystal2= Math.floor(Math.random()*11+1);
+
+     crystal3= Math.floor(Math.random()*11+1);
+
+     crystal4= Math.floor(Math.random()*11+1);
+
+     userTotal= 0;
+
+     $('#finalTotal').text(userTotal);
+
+     }
+
+    //adds the wins to the userTotal.
+
+    function win(){
+
+    alert("You won!");
+
+    wins++;
+
+    $('#numberWins').text("Wins:  " + wins);
+
+    reset();
+    }
+
+    //adds the losses to the userTotal.
+
+    function lose(){
+
+    alert ("You lose!");
+
+    losses++;
+
+    $('#numberLosses').text("Losses:  " + losses);
+
+ reset()
+
+}
+  // Sets up the click ability for crystals.
+
+ $('#crystalOne').on ('click', function(){
+
+   userTotal = userTotal + crystal1;
+
+   console.log("New userTotal= " + userTotal);
+
+   $('#finalTotal').text(userTotal);
+
+// Sets up the win/lose conditions
+
+  if (userTotal == Random){
+    win();
+       }
+
+  else if ( userTotal > Random){
+    lose();
+       }  
+
+ }) 
+
+ $('#crystalTwo').on ('click', function(){
+
+   userTotal = userTotal + crystal2;
+
+   console.log("New userTotal= " + userTotal);
+
+   $('#finalTotal').text(userTotal);
+
+// Sets up the win/lose conditions
+
+  if (userTotal == Random){
+    win();
+       }
+
+  else if ( userTotal > Random){
+    lose();
+   }
+
+ }) 
+
+  $('#crystalThree').on ('click', function(){
+   
+   userTotal = userTotal + crystal3;
+
+   console.log("New userTotal= " + userTotal);
+
+   $('#finalTotal').text(userTotal);
+
+// Sets up the win/lose conditions
+
+  if (userTotal == Random){
+    win();
+  }
+
+  else if ( userTotal > Random){
+    lose();
+  }
+ }) 
+
+  $('#crystalFour').on ('click', function(){
+
+   userTotal = userTotal + crystal4;
+
+   console.log("New userTotal= " + userTotal);
+
+   $('#finalTotal').text(userTotal);
+
+  // Sets up the win/lose conditions
+
+  if (userTotal == Random){
+    win();
+   }
+
+  else if ( userTotal > Random){
+    lose();
+   }
+ });  
+});
+    
+</script>
+ 
+
+  
+</body>
+</html>
