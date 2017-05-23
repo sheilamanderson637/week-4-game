@@ -1,10 +1,8 @@
-<script type="text/javascript">
-
-    $( document ).ready(function(){
+ $( document ).ready(function(){
 
       // Select a random number between 12-120 at the start of the game.
 
-      var Random=Math.floor(Math.random()*101+19)
+      var Random=Math.floor(Math.random() * 101) + 19;
 
       // Add the random number generated to the randomNumber id in the html.
 
@@ -12,13 +10,20 @@
 
       // Select random numbers between 1 - 12 for each of the four crystals.
 
-        var crystal1= Math.floor(Math.random()*11+1)
+      var crystal1, crystal2, crystal3, crystal4;
 
-        var crystal2= Math.floor(Math.random()*11+1)
+      function crystalNumber () {
 
-        var crystal3= Math.floor(Math.random()*11+1)
+        crystal1= Math.floor(Math.random() * 12) + 1;
 
-        var crystal4= Math.floor(Math.random()*11+1)
+        crystal2= Math.floor(Math.random() * 12) + 1;
+
+        crystal3= Math.floor(Math.random() * 12) + 1;
+
+        crystal4= Math.floor(Math.random() * 12) + 1;
+      }
+
+      crystalNumber();
     
       // Variables to track the score.
 
@@ -28,22 +33,16 @@
 
       // Game reset.
 
-      $('#numberWins').text(+ wins);
+      $('#numberWins').text("Wins: " + wins);
 
-      $('#numberLosses').text(+ losses);
+      $('#numberLosses').text("Losses: " + losses);
 
     function reset(){
-      Random=Math.floor(Math.random()*101+19);
+      Random=Math.floor(Math.random() *101) + 19;
 
      $('#randomNumber').text(Random);
 
-     crystal1= Math.floor(Math.random()*11+1);
-
-     crystal2= Math.floor(Math.random()*11+1);
-
-     crystal3= Math.floor(Math.random()*11+1);
-
-     crystal4= Math.floor(Math.random()*11+1);
+     crystalNumber();
 
      userTotal= 0;
 
@@ -55,7 +54,7 @@
 
     function win(){
 
-    alert("You won!");
+    alert("You win!");
 
     wins++;
 
@@ -155,7 +154,6 @@
   else if ( userTotal > Random){
     lose();
    }
- });  
-});
+ })
+ }); 
     
-</script>

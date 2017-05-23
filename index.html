@@ -8,10 +8,10 @@
 
   <!-- Added link to my JS -->
 
-  <!-- <script src="assets/javascript/game.js"></script> -->
+  <script src="assets/javascript/game.js"></script>
 
   <!-- Reset CSS-->
-  <link rel="stylesheet" href="assets/css/reset.css"
+  <link rel="stylesheet" href="assets/css/reset.css">
 
   <!-- Added a link to Bootstrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -28,9 +28,9 @@
   <div class="jumbotron">
     <div class="crystalsTitle text-center">Crystals Collector</div>
     <div class="directionsText text-center">
-      <p>Directions:</p>
+      <div class="directionsTitle">Directions:</div>
       <P>At the beginning of each game, a random number between 19 and 120 is generated.</p>
-      <p>Each of the crystals is also assigned a random number. Click on them to increase your number.</p>
+      <p>Each of the crystals is also assigned a random number. Click on the crystals to increase your number.</p>
       <p>Match the random number to win. If your number exceeds the random number you lose. See how many times you can win!</p>
     </div>
   </div>
@@ -92,167 +92,6 @@
           </div>
        </div>
        </div>
-       </div>
-  <script type="text/javascript">
-
-    $( document ).ready(function(){
-
-      // Select a random number between 12-120 at the start of the game.
-
-      var Random=Math.floor(Math.random() * 101) + 19;
-
-      // Add the random number generated to the randomNumber id in the html.
-
-      $('#randomNumber').text(Random);
-
-      // Select random numbers between 1 - 12 for each of the four crystals.
-
-        var crystal1= Math.floor(Math.random() * 12) + 1;
-
-        var crystal2= Math.floor(Math.random() * 12) + 1;
-
-        var crystal3= Math.floor(Math.random() * 12) + 1;
-
-        var crystal4= Math.floor(Math.random() * 12) + 1;
-    
-      // Variables to track the score.
-
-        var userTotal= 0;
-        var wins= 0;
-        var losses = 0;
-
-      // Game reset.
-
-      $('#numberWins').text(+ wins);
-
-      $('#numberLosses').text(+ losses);
-
-    function reset(){
-      Random=Math.floor(Math.random() *101) + 19;
-
-     $('#randomNumber').text(Random);
-
-     crystal1= Math.floor(Math.random() * 12) + 1;
-
-     crystal2= Math.floor(Math.random() * 12) + 1;
-
-     crystal3= Math.floor(Math.random() * 12) + 1;
-
-     crystal4= Math.floor(Math.random() * 12) + 1;
-
-     userTotal= 0;
-
-     $('#finalTotal').text(userTotal);
-
-     }
-
-    //adds the wins to the userTotal.
-
-    function win(){
-
-    alert("You won!");
-
-    wins++;
-
-    $('#numberWins').text("Wins:  " + wins);
-
-    reset();
-    }
-
-    //adds the losses to the userTotal.
-
-    function lose(){
-
-    alert ("You lose!");
-
-    losses++;
-
-    $('#numberLosses').text("Losses:  " + losses);
-
- reset()
-
-}
-  // Sets up the click ability for crystals.
-
- $('#crystalOne').on ('click', function(){
-
-   userTotal = userTotal + crystal1;
-
-   console.log("New userTotal= " + userTotal);
-
-   $('#finalTotal').text(userTotal);
-
-// Sets up the win/lose conditions
-
-  if (userTotal == Random){
-    win();
-       }
-
-  else if ( userTotal > Random){
-    lose();
-       }  
-
- }) 
-
- $('#crystalTwo').on ('click', function(){
-
-   userTotal = userTotal + crystal2;
-
-   console.log("New userTotal= " + userTotal);
-
-   $('#finalTotal').text(userTotal);
-
-// Sets up the win/lose conditions
-
-  if (userTotal == Random){
-    win();
-       }
-
-  else if ( userTotal > Random){
-    lose();
-   }
-
- }) 
-
-  $('#crystalThree').on ('click', function(){
-   
-   userTotal = userTotal + crystal3;
-
-   console.log("New userTotal= " + userTotal);
-
-   $('#finalTotal').text(userTotal);
-
-// Sets up the win/lose conditions
-
-  if (userTotal == Random){
-    win();
-  }
-
-  else if ( userTotal > Random){
-    lose();
-  }
- }) 
-
-  $('#crystalFour').on ('click', function(){
-
-   userTotal = userTotal + crystal4;
-
-   console.log("New userTotal= " + userTotal);
-
-   $('#finalTotal').text(userTotal);
-
-  // Sets up the win/lose conditions
-
-  if (userTotal == Random){
-    win();
-   }
-
-  else if ( userTotal > Random){
-    lose();
-   }
- })
- }); 
-    
-</script>   
+       </div>  
 </body>
 </html>
