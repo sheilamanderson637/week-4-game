@@ -1,7 +1,7 @@
  $( document ).ready(function(){
 
       // Select a random number between 12-120 at the start of the game.
-
+      
       var Random=Math.floor(Math.random() * 101) + 19;
 
       // Add the random number generated to the randomNumber id in the html.
@@ -38,15 +38,16 @@
       $('#numberLosses').text("Losses: " + losses);
 
     function reset(){
+
       Random=Math.floor(Math.random() *101) + 19;
 
-     $('#randomNumber').text(Random);
+      $('#randomNumber').text(Random);
 
-     crystalNumber();
+      crystalNumber();
 
-     userTotal= 0;
+      userTotal= 0;
 
-     $('#finalTotal').text(userTotal);
+      $('#finalTotal').text(userTotal);
 
      }
 
@@ -54,37 +55,35 @@
 
     function win(){
 
-    alert("You win!");
+      alert("You win!");
 
-    wins++;
+      wins++;
 
-    $('#numberWins').text("Wins:  " + wins);
+      $('#numberWins').text("Wins:  " + wins);
 
-    reset();
+      reset();
     }
 
     //adds the losses to the userTotal.
 
     function lose(){
 
-    alert ("You lose!");
+      alert ("You lose!");
 
-    losses++;
+      losses++;
 
-    $('#numberLosses').text("Losses:  " + losses);
+      $('#numberLosses').text("Losses:  " + losses);
 
- reset()
+      reset()
 
 }
   // Sets up the click ability for crystals.
 
- $('#crystalOne').on ('click', function(){
+    $('#crystalOne').on ('click', function(){
 
-   userTotal = userTotal + crystal1;
+      userTotal = userTotal + crystal1;
 
-   console.log("New userTotal= " + userTotal);
-
-   $('#finalTotal').text(userTotal);
+      $('#finalTotal').text(userTotal);
 
 // Sets up the win/lose conditions
 
@@ -101,8 +100,6 @@
  $('#crystalTwo').on ('click', function(){
 
    userTotal = userTotal + crystal2;
-
-   console.log("New userTotal= " + userTotal);
 
    $('#finalTotal').text(userTotal);
 
@@ -122,8 +119,6 @@
    
    userTotal = userTotal + crystal3;
 
-   console.log("New userTotal= " + userTotal);
-
    $('#finalTotal').text(userTotal);
 
 // Sets up the win/lose conditions
@@ -140,8 +135,6 @@
   $('#crystalFour').on ('click', function(){
 
    userTotal = userTotal + crystal4;
-
-   console.log("New userTotal= " + userTotal);
 
    $('#finalTotal').text(userTotal);
 
